@@ -39,8 +39,43 @@ controller.obterUm = async (req, res) => {
 
     // Se o objeto vier preenchido (achou), então o retornamos
     if(obj) res.send(obj)
-    // Senão (objeto vazio), enviamos o status HTTP 404: Not Found
+    // Senão (objeto vazio), enviamos o status HTTP 404: Not found
     else res.status(404).end()
+}
+
+// Método atualizar(), implementando a operação UPDATE
+controller.atualizar = async (req, res) => {
+    try {
+        // Isolar o _id do objeto para fins de busca
+        const id = req.body._id
+        // Busca o objeto pelo id, e encontrando-o, substitui o conteúdo por req.body
+        let obj = await Curso.findByIdAndUpdate(id, req.body)
+        // Se encontrou e substituiu, retornamos HTTP 204: No content
+        if(obj) res.status(204).end()
+        // Caso contrário, retorna HTTP 404: Not found
+        else res.status(404).end()
+    }
+    catch(erro) {
+        console.error(erro)
+        res.status(500).end()
+    }
+}
+
+// Método excluir(), implementando a operação DELETE
+controller.excluir = async (req, res) => {
+    try {
+        // Isolando o id para exclusão
+        const id = req.body._id
+        let obj = await Curso.findByIdAndDelete(id)
+        // Encontrou e excluiu
+        if(obj) res.status(204).end()
+        // Objeto não foi encontrado para exclusão
+        else res.status(404).end()
+    }
+    catch(erro) {
+        console.error(erro)
+        res.status(500).send(erro)
+    }
 }
 
 module.exports = controller
