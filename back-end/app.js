@@ -31,4 +31,12 @@ app.use('/teste', teste)
 const curso = require('./routes/curso')
 app.use('/curso', curso)
 
+// Rota para o professor
+const professor = require('./routes/professor')
+app.use('/professor', professor)
+
+// Rota para a sala-aula
+const sala_aula = require('./routes/sala_aula')
+app.use('/sala-aula', sala_aula)
+
 module.exports = app;
