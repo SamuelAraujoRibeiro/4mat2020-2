@@ -15,6 +15,7 @@ export class CursoListComponent implements OnInit {
   async ngOnInit() {
     this.cursos = await this.cursoSrv.listar()
     console.log(this.cursos)
+    console.log('teste')
   }
 
 }
