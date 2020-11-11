@@ -1,6 +1,13 @@
 <h1>Listagem de cursos</h1>
 
-<table mat-table [dataSource]="cursos" class="mat-elevation-z8">
+<mat-toolbar class="new-item">
+  <a mat-raised-button color="accent" [routerLink]="['/curso/novo']">
+    <mat-icon>add_circle</mat-icon>
+    Novo curso
+  </a>
+</mat-toolbar>
+
+<table mat-table [dataSource]="cursos" class="mat-elevation-z4">
   <!-- Nome Column -->
   <ng-container matColumnDef="nome">
     <th mat-header-cell *matHeaderCellDef> Curso </th>
@@ -27,4 +34,25 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- Editar Column -->
+  <ng-container matColumnDef="editar">
+    <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Editar</th>
+    <td mat-cell class="cell-align-center" *matCellDef="let curso">
+    <a mat-raised-button color="accent" title="Editar"
+    [routerLink]="['/curso', curso._id]">
+    <mat-icon>edit</mat-icon>
+    </a>
+    </td>
+  </ng-container>
+
+  <!-- Excluir Column -->
+  <ng-container matColumnDef="excluir">
+    <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Excluir</th>
+    <td mat-cell class="cell-align-center" *matCellDef="let curso">
+    <button mat-raised-button color="warn" title="Excluir" (click)="excluir(curso._id)">
+    <mat-icon>delete_forever</mat-icon>
+    </button>
+    </td>
+  </ng-container>
 </table>

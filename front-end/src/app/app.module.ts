@@ -10,6 +10,7 @@ import { MainMenuComponent } from './ui/main-menu/main-menu.component';
 import { MainFooterComponent } from './ui/main-footer/main-footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CursoListComponent } from './curso/curso-list/curso-list.component';
+import { CursoFormComponent } from './curso/curso-form/curso-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CursoListComponent } from './curso/curso-list/curso-list.component';
     MainToolbarComponent,
     MainMenuComponent,
     MainFooterComponent,
-    CursoListComponent
+    CursoListComponent,
+    CursoFormComponent
   ],
   imports: [
     BrowserModule,
