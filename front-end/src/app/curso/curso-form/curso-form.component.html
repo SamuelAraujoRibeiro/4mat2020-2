@@ -1,0 +1,35 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+
+  <mat-form-field>
+    <mat-label>Nome do curso</mat-label>
+    <input name="nome" [(ngModel)]="curso.nome" matInput required 
+    placeholder="Informe o nome do curso">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Carga horária</mat-label>
+    <input name="carga_horaria" [(ngModel)]="curso.carga_horaria" matInput required 
+    placeholder="Informe a carga horária" type="number">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Nível</mat-label>
+    <mat-select name="nivel" [(ngModel)]="curso.nivel" required>
+      <!-- <mat-option value="Básico">Básico</mat-option>
+      <mat-option value="Intermediário">Intermediário</mat-option>
+      <mat-option value="Avançado">Avançado</mat-option> -->
+      <mat-option *ngFor="let nivel of niveis" [value]="nivel.valor">
+        {{ nivel.descr }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Valor do curso</mat-label>
+    <input name="valor_curso" [(ngModel)]="curso.valor_curso" matInput required 
+    placeholder="Informe o valor do curso" type="number">
+  </mat-form-field>
+
+</form>
