@@ -48,3 +48,12 @@ div.content {
     margin-right: 30px;
   }
 }
+
+.form-buttons {
+   background: transparent;
+ 
+   mat-toolbar-row {
+      display: flex;
+      justify-content: space-around;
+   }
+}
