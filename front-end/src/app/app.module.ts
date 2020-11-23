@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CursoListComponent } from './curso/curso-list/curso-list.component';
 import { CursoFormComponent } from './curso/curso-form/curso-form.component';
 import { FormsModule } from '@angular/forms';
+import { TurmaListComponent } from './turma/turma-list/turma-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     MainMenuComponent,
     MainFooterComponent,
     CursoListComponent,
-    CursoFormComponent
+    CursoFormComponent,
+    TurmaListComponent
   ],
   imports: [
     BrowserModule,
