@@ -17,9 +17,6 @@
   <mat-form-field>
     <mat-label>Nível</mat-label>
     <mat-select name="nivel" [(ngModel)]="curso.nivel" required>
-      <!-- <mat-option value="Básico">Básico</mat-option>
-      <mat-option value="Intermediário">Intermediário</mat-option>
-      <mat-option value="Avançado">Avançado</mat-option> -->
       <mat-option *ngFor="let nivel of niveis" [value]="nivel.valor">
         {{ nivel.descr }}
       </mat-option>

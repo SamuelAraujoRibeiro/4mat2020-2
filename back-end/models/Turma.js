@@ -7,7 +7,7 @@ const esquema = mongoose.Schema({
     dias_semana: [{
         type: String,
         required: true,
-        enum: ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab']
+        enum: ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb']
     }],
     horario_inicial: { type: String, required: true },
     horario_final: { type: String, required: true },
