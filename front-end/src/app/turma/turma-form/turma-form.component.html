@@ -31,6 +31,51 @@
     </mat-select>
   </mat-form-field>
 
+  <mat-form-field>
+    <mat-label>Horário inicial</mat-label>
+    <input name="horario_inicial" [(ngModel)]="turma.horario_inicial" matInput required 
+    placeholder="Informe o horário inicial" mask="00:00" [dropSpecialCharacters]="false">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Horário final</mat-label>
+    <input name="horario_final" [(ngModel)]="turma.horario_final" matInput required 
+    placeholder="Informe o horário final" mask="00:00" [dropSpecialCharacters]="false">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Curso</mat-label>
+    <mat-select name="curso" [(ngModel)]="turma.curso" required>
+    <!-- No mat-option, usamos a listagem da entidade relacionada para gerar
+    as opções que serão exibidas ao usuário. -->
+      <mat-option *ngFor="let curso of cursos" [value]="curso._id">
+        {{ curso.nome }} ({{ curso.nivel }})
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Professor</mat-label>
+    <mat-select name="professor" [(ngModel)]="turma.professor" required>
+    <!-- No mat-option, usamos a listagem da entidade relacionada para gerar
+    as opções que serão exibidas ao usuário. -->
+      <mat-option *ngFor="let professor of professores" [value]="professor._id">
+        {{ professor.nome }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Salas de aula</mat-label>
+    <mat-select name="sala_aula" [(ngModel)]="turma.sala_aula" required>
+    <!-- No mat-option, usamos a listagem da entidade relacionada para gerar
+    as opções que serão exibidas ao usuário. -->
+      <mat-option *ngFor="let sala of salasAula" [value]="sala._id">
+        {{ sala.nome }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <mat-toolbar class="form-buttons">
     <mat-toolbar-row>
       <button mat-raised-button type="submit" color="accent">

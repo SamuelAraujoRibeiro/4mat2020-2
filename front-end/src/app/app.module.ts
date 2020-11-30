@@ -1,7 +1,9 @@
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-// Na seção de imports do app.module.ts
 // Habilitar formatação de moeda e data em português
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -41,10 +43,10 @@ import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [
-    // No app.module.ts, dentro seção providers
     /**** Datas em português no MatDatepicker  ****/
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
@@ -53,4 +55,5 @@ import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
